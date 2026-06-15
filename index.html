@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewTube</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0f0f0f;
+    color:white;
+}
+
+header{
+    background:#202020;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:red;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.search{
+    width:40%;
+    padding:10px;
+    border:none;
+    border-radius:20px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.video{
+    background:#202020;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.video img{
+    width:100%;
+}
+
+.video h3{
+    padding:10px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<div class="logo">NewTube</div>
+<input class="search" placeholder="Search videos...">
+</header>
+
+<div class="container">
+
+<div class="video">
+<img src="https://picsum.photos/500/300?1">
+<h3>Anime Facts #1</h3>
+</div>
+
+<div class="video">
+<img src="https://picsum.photos/500/300?2">
+<h3>Manhwa Explained</h3>
+</div>
+
+<div class="video">
+<img src="https://picsum.photos/500/300?3">
+<h3>Horror Story Tamil</h3>
+</div>
+
+</div>
+
+</body>
+</html>
