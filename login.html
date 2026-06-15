@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewTube Login</title>
+
+<style>
+body{
+    background:#0f0f0f;
+    color:white;
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:320px;
+    background:#202020;
+    padding:20px;
+    border-radius:15px;
+}
+
+h1{
+    text-align:center;
+    color:red;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#message{
+    margin-top:10px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>NewTube</h1>
+
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="signup()">Sign Up</button>
+<br><br>
+<button onclick="login()">Login</button>
+
+<p id="message"></p>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCEJyIcK7doWCR2zAyq4tFsbt0Y87wn_wU",
+  authDomain: "newtube-fa58c.firebaseapp.com",
+  projectId: "newtube-fa58c",
+  storageBucket: "newtube-fa58c.firebasestorage.app",
+  messagingSenderId: "570873720795",
+  appId: "1:570873720795:web:144cdfbea43fa3f424c1fe"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.signup = function () {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      document.getElementById("message").innerText =
+        "Account Created Successfully!";
+    })
+    .catch((error) => {
+      document.getElementById("message").innerText =
+        error.message;
+    });
+};
+
+window.login = function () {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      document.getElementById("message").innerText =
+        "Login Successful!";
+    })
+    .catch((error) => {
+      document.getElementById("message").innerText =
+        error.message;
+    });
+};
+
+</script>
+
+</body>
+</html>
